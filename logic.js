@@ -12,15 +12,40 @@ calSum(20,10,printSum)
 
 //2."Write callback function to print numbers from 1 to 7, in which 1 should be printed after 1 sec , 2 should be printed after 2 sec, 3 should be printed after 3 sec and so on. 
 
-const printNumbersForEvery1sec = (n)=>{
-  for (let i = 1; i <= n; i++) {
-    setTimeout( () =>{
-      console.log(i)
-    }, i * 1000)
-  }
+const printNum=()=>{
+    setTimeout(() => {
+        console.log('1')
+    }, 1000);
+    setTimeout(() => {
+        console.log('2')
+    }, 2000);
+    setTimeout(() => {
+        console.log('3')
+    }, 3000);
+    setTimeout(() => {
+        console.log('4')
+    }, 4000);
+    setTimeout(() => {
+        console.log('5')
+    }, 5000);
+    setTimeout(() => {
+        console.log('6')
+    }, 6000);
+    setTimeout(() => {
+        console.log('7')
+    }, 7000);
 }
+printNum();
 
-printNumbersForEvery1sec(7);
+// const printNumbersForEvery1sec = (n)=>{
+//   for (let i = 1; i <= n; i++) {
+//     setTimeout( () =>{
+//       console.log(i)
+//     }, i * 1000)
+//   }
+// }
+
+// printNumbersForEvery1sec(7);
 
 //3.Explain callback hell.
 
@@ -28,6 +53,50 @@ printNumbersForEvery1sec(7);
 //that affects the readability and maintainability of the code.
 
 //4."Write promise function to print numbers from 1 to 7, in which 1 should be printed after 1 sec , 2 should be printed after 2 sec, 3 should be printed after 3 sec and so on. 
+    
+      let num =new Promise((fullfilled,reject)=>{
+     
+        setTimeout(()=>{
+            fullfilled(console.log("1"))
+        },1000)
+       
+    }).then( ()=> new Promise((fullfilled,reject)=>{
+    
+       setTimeout(()=>{
+        fullfilled(console.log("2"))
+       },2000)
+    
+    }) ).then( ()=> new Promise((fullfilled,reject)=>{
+    
+       setTimeout(()=>{
+        fullfilled(console.log("3"))
+       },3000)
+    
+    }) ).then(()=> new Promise((fullfilled,reject)=>{
+       
+        setTimeout(()=>{
+            fullfilled(console.log("4"))
+        },4000)
+    
+    })).then(()=> new Promise((fullfilled,reject)=>{
+       
+        setTimeout(()=>{
+            fullfilled(console.log("5"))
+        },5000)
+    })).then( ()=> new Promise((fullfilled,rej)=>{
+       
+        setTimeout(()=>{
+           fullfilled(console.log("6"))
+        },6000)
+    
+    })).then(()=> new Promise((fullfilled,rej)=>{
+        
+        setTimeout(()=>{
+            fullfilled(console.log("7"))
+            console.log("end of promises");
+        },7000)
+    }));
+
 
 //5.Create a promise function accepting a argument, if yes is passed to the function then it should go to resolved state and print Promise Resolved, and if nothing is passed then it should go to reject state and catch the error and print Promise Rejected 
 
